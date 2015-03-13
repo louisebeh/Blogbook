@@ -5,7 +5,6 @@ class Blog
   include DataMapper::Resource
 
   has n, :tags, :through => Resource
-  # has n, :users, :through => Resource
   belongs_to :user, :required => false
 
   property :id,     Serial
@@ -14,11 +13,7 @@ class Blog
   attr_reader :url
 
   def good_url
-    if self.url.include?('http://')
-      self.url
-    else
-      ("http://") + self.url
-    end
+    self.url.include?('http://') ? self.url : ("http://") + self.url
   end
 
   def clean_url
