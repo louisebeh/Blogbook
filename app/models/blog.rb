@@ -8,9 +8,11 @@ class Blog
   belongs_to :user, :required => false
 
   property :id,     Serial
-  property :url,    String
+  property :url,    String, :unique => true
 
   attr_reader :url
+
+  validates_uniqueness_of :url
 
   def good_url
     self.url.include?('http://') ? self.url : ("http://") + self.url

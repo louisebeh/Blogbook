@@ -1,8 +1,14 @@
-<div id = "new-blog">
-  <form action="/blogs" method="post">
-    Url: <input type="text" name="url">
-    Tags: <input type="text" name="tags">
-    <input type="submit" value="Add blog">
+<% if current_user %>
+  <div id = "new-blog">
+    <form action="/blogs" method="post">
+      Url: <input type="text" name="url">
+      Tags: <input type="text" name="tags">
+      <input type="submit" value="Add blog">
+    </form>
+  </div>
+<% else %>
+  <form action="/">
+    <input type="submit" value="Go Back Home">
   </form>
-</div>
+<% end %>
 
