@@ -14,3 +14,5 @@ get '/blogs/new' do
   erb :'blogs/new'
 end
 
+
+# flash[:notice] = "Good bye!"
